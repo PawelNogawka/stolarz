@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Współpraca biznesowa - b2b | KonGrod Rabka Zdrój</title>
+    <meta
+      name="description"
+      content="Otwórz nowe możliwości współpracy biznesowej z KonGrod. Oferujemy wysokiej jakości produkty i usługi stolarskie dla firm. Skontaktuj się z nami, aby omówić szczegóły i dostosować ofertę do Twoich potrzeb."
+    />
+    
+    <link
+      rel="shortcut icon"
+      type="image/svg"
+      href="./dist/images/logo-strona.svg"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .scroll-btn {
+        display: none;
+        position: fixed;
+        bottom: 4rem;
+        right: 4rem;
+        width: 4rem;
+        height: 4rem;
+        background-color: #b7974f;
+      }
+      .scroll-btn i {
+        color: #fff;
+        font-size: 2.2rem;
+      }
+      @media (min-width: 1450px) {
+        .scroll-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      .bounce-top {
+        display: block;
+        animation: a 2s infinite both;
+      }
+      @keyframes a {
+        0% {
+          transform: translateY(-45px);
+          animation-timing-function: ease-in;
+          opacity: 1;
+        }
+        24% {
+          opacity: 1;
+        }
+        40% {
+          transform: translateY(-24px);
+          animation-timing-function: ease-in;
+        }
+        65% {
+          transform: translateY(-12px);
+          animation-timing-function: ease-in;
+        }
+        25%,
+        55%,
+        75%,
+        87% {
+          transform: translateY(0);
+          animation-timing-function: ease-out;
+        }
+        to {
+          transform: translateY(0);
+          animation-timing-function: ease-out;
+          opacity: 1;
+        }
+      }
+      .businesses-b2b {
+        padding: 0 2rem;
+        height: 100vh;
+        background-image: linear-gradient(
+            90deg,
+            rgba(28, 28, 28, 0.75) 100%,
+            rgba(55, 58, 62, 0.75) 0
+          ),
+          url(../images/wspolpraca-biznesowa-maly.jpg);
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: cover;
+      }
+      .businesses-b2b,
+      .businesses-b2b__banner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .businesses-b2b__banner {
+        flex-direction: column;
+        gap: 2rem;
+        color: #fff;
+        text-align: center;
+      }
+      .businesses-b2b__heading {
+        font-size: 2.6rem;
+      }
+      .businesses-b2b__info {
+        font-size: 1.7rem;
+      }
+      .businesses-b2b__btn {
+        padding: 1rem 3rem;
+        background-color: #b7974f;
+        color: #fff;
+        font-size: 1.6rem;
+      }
+      @media (min-width: 576px) {
+        .businesses-b2b__banner {
+          gap: 3rem;
+        }
+        .businesses-b2b__heading {
+          font-size: 4rem;
+        }
+      }
+      @media (min-width: 776px) {
+        .businesses-b2b__banner {
+          gap: 4rem;
+        }
+        .businesses-b2b__heading {
+          font-size: 5rem;
+        }
+      }
+      @media (min-width: 992px) {
+        .businesses-b2b {
+          background-image: linear-gradient(
+              90deg,
+              rgba(28, 28, 28, 0.75) 100%,
+              rgba(55, 58, 62, 0.75) 0
+            ),
+            url(../images/wspolpraca-biznesowa-duzy.jpg);
+        }
+        .businesses-b2b__heading {
+          font-size: 7rem;
+        }
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        text-transform: capitalize;
+        font-family: Poppins, sans-serif;
+      }
+      html {
+        font-size: 62.5%;
+        scroll-behavior: smooth;
+        scroll-padding: 7rem;
+      }
+      body {
+        width: 100%;
+        overflow-x: hidden;
+      }
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 2rem 3rem;
+        z-index: 2;
+
+        a {
+          text-transform: capitalize;
+        }
+      }
+      .header__logo {
+        z-index: 2;
+      }
+      .header__logo svg {
+        width: 5.5rem;
+        height: auto;
+      }
+      .header__nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transform: translateY(-100%);
+        background-color: #fff;
+        z-index: 1;
+      }
+      .header__nav-link {
+        margin: 1.5rem 0;
+        font-size: 2rem;
+        color: #1c1c1c;
+      }
+      .header__menu-btn {
+        width: 4rem;
+        height: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        z-index: 2;
+        border: 0.1rem solid transparent;
+        background: 0;
+      }
+      .header__bar {
+        height: 0.2rem;
+        background-color: #fff;
+      }
+      .header__bar--one {
+        width: 50%;
+        height: 0.2rem;
+      }
+      .header__bar--two {
+        width: 100%;
+      }
+      .header__bar--three {
+        width: 50%;
+        margin-left: auto;
+        height: 0.2rem;
+      }
+      .home__arrow {
+        position: absolute;
+        bottom: 5rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .home__arrow i {
+        color: #fff;
+        font-size: 2.6rem;
+      }
+      @media (min-width: 768px) {
+        .header {
+          padding-left: 4rem;
+          padding-right: 4rem;
+        }
+        .header__nav-link {
+          font-size: 2.4rem;
+        }
+      }
+      @media (min-width: 992px) {
+        .header {
+          padding: 2rem 8rem;
+        }
+        .header__nav {
+          position: static;
+          width: auto;
+          height: auto;
+          flex-direction: row;
+          transform: translateY(0);
+          background-color: transparent;
+        }
+        .header__nav-link {
+          margin: 0 1.7rem;
+          font-size: 1.6rem;
+          color: #fff;
+        }
+        .header__nav-link:last-child {
+          margin-left: 6rem;
+        }
+        .header__nav-link--cta {
+          padding: 1rem 3rem;
+          background-color: #b7974f;
+        }
+        .header__menu-btn {
+          display: none;
+        }
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header header--sticky">
+      <a href="/" class="header__logo">
+        <svg
+          width="292.549"
+          height="336.892"
+          viewBox="0 0 77.404 89.136"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g stroke-linecap="round" fill="#fff">
+            <path
+              d="M49.4 8.046c-1.517-.004-3.807 1.392-6.87 4.187-3.183-1.268-6.267-1.937-9.254-2.008-.442-.01-.883-.008-1.323.009-5.255.198-10.327 2.333-15.215 6.404-1.954 1.52-5.055 2.906-9.303 4.162-1.354-.11-1.956.695-1.805 2.417-1.734 3.122.112 5.815 5.538 8.08-.285-.393-.368-.653-.247-.78a.218.218 0 01.064-.046c2.203 1.55 4.641 2.407 7.314 2.57-.592-.755-.816-1.357-.674-1.806 1.898 1.49 3.98 2.448 6.243 2.877.164 1.999-.193 3.631-1.07 4.896 1.897-.326 3.753-1.091 5.569-2.295.897 1.305 1.03 3.07.398 5.294 1.662-1.682 3.324-2.696 4.986-3.041l.094-.019c1.203 1.163 1.948 2.765 2.233 4.805 2.081-2.652 4.78-4.231 8.097-4.736-4.194 2.443-6.87 6.275-8.03 11.495-1.232-4.575-2.52-7.246-3.865-8.013a2.686 2.686 0 00-.057-.031c-3.632 1.223-5.916 4.987-6.855 11.292 1.224-2.061 2.336-3.296 3.336-3.704-2.55 6.59-3.942 12.33-4.175 17.223.467-1.42 1.33-2.74 2.586-3.959-2.434 7.554-2.314 14.287.36 20.198.322.617.202.617 3.523.617.183-.92.225-2.093.155-3.694a9.676 9.676 0 01.971 3.694h.845c.182-.92.211-2.103.129-3.725l.02.03c.658 1.352.909 2.507.974 3.695.354 0 .512.005.743 0 .183-.92.22-2.103.137-3.725l.02.03c.543.866.868 2.105.97 3.695h.672c.183-.92.205-2.103.123-3.725l.02.03c.56 1.206.822 2.525.974 3.695.603.021.836-.19.698-.818-.612-3.203-1.668-5.94-3.167-8.207 1.162.69 2.042 1.697 2.641 3.023-.27-7.782.622-13.608 2.678-17.476 1.007.369 1.337.6 1.952 2.342.074-3.209.499-4.379 2.204-5.974-.003 3.428.945 5.985 2.844 7.671.526-4.07 1.804-5.84 3.032-6.442 1.024.88 1.716 1.496 1.96 4.18.984-1.85 1.354-2.029 2.503-2.46 2.36 4.636 2.194 10.195 1.86 14.989.237-.934.915-1.793 2.035-2.576-1.148 1.912-1.892 5.551-2.232 10.918-.03.585.089.83.347.83h.275c.13-1.635.476-2.901 1.03-3.785l.021-.03c-.082 1.622-.03 2.895.152 3.815h.724c.094-1.648.421-2.897.977-3.785l.02-.03c-.081 1.622-.03 2.893.152 3.813l.552.002c.21-1.632.593-2.9 1.15-3.785-.068 1.602-.011 2.865.172 3.785.698.001 0-.002.698 0 .233-1.621.627-2.904 1.183-3.785l.02-.03c-.082 1.622-.032 2.893.151 3.813.093.002.237.002.322.002 3.071 0 3.07 0 3.572-1.053 2.998-6.927 3.516-16.059 1.556-27.395 1 1.428 1.653 2.99 1.959 4.682.408-5.732-.623-11.944-3.092-18.636 1.551 1.122 2.786 3 3.704 5.631-.674-7.997-2.806-14.465-6.397-19.403 1.612.857 3.107 2.35 4.486 4.477-2.594-7.34-6.666-12.709-12.217-16.102 1.625 3.405 2.162 7.495 1.611 12.269-.592-4-1.84-7.66-3.747-10.983.05 3.16-.518 5.495-1.706 7.005.126-5.57-.504-9.063-1.892-10.478-.004.936-.486 1.898-1.446 2.886 1.086-5.986.52-8.982-1.696-8.988zm21.093 24.39l.074.207-.071-.203-.003-.003zM49.544 9.968c.321 2.045-.026 3.85-1.043 5.417-.23-1.295-.518-2.203-.864-2.725l-.021-.03c-1.026.464-2.128.413-3.306-.153 1.98-.55 3.724-1.387 5.234-2.509zm-28.646 7.015c1.148-.025 2.107.523 2.878 1.645-1.754.735-3.274.317-4.559-1.254.6-.25 1.16-.38 1.681-.39zm28.336 6.253c.436 3.476 1.923 6.055 4.46 7.737-2.117.266-4.191.138-6.223-.383.873 1.595 1.11 3.659.71 6.19-2.119-3.12-5.664-4.843-10.637-5.171 3.092-.914 5.864-.809 8.315.316.067-.924-.84-2.682-2.718-5.275 2.55 1.871 4.674 2.824 6.37 2.857-.806-2.468-.898-4.558-.277-6.27zm11.385 8.37c2.022 8.59-.397 14.481-7.257 17.674 2.084-2.251 3.308-4.13 3.674-5.637-2.632 1.742-5.836 2.41-9.61 2.007 8.14-2.568 12.538-7.25 13.193-14.044z"
+            />
+            <path
+              d="M27.007 10.509c2.944-.91 6.254-1.068 9.333-.606-5.088-6.611-8.33-6.66-9.333.606z"
+            />
+          </g>
+        </svg>
+      </a>
+      <button class="header__menu-btn">
+        <span class="header__bar header__bar--one"></span>
+        <span class="header__bar header__bar--two"></span>
+        <span class="header__bar header__bar--three"></span>
+      </button>
+      <nav class="header__nav">
+        <a href="./index.html#about" class="header__nav-link">o nas</a>
+        <a href="./index.html#offers" class="header__nav-link">oferta</a>
+        <a href="./index.html#features" class="header__nav-link"
+          >dlaczego my?</a
+        >
+        <a href="/realizacje.html" class="header__nav-link">Realizacje</a>
+        <a href="b2b.html" class="header__nav-link">B2B</a>
+        <a
+          href="#contact"
+          class="header__nav-link header__nav-link--cta btn-animation"
+          >kontakt</a
+        >
+      </nav>
+    </header>
+    <section class="businesses-b2b">
+      <div class="businesses-b2b__banner">
+        <h1 class="businesses-b2b__heading">współpraca biznesowa</h1>
+        <p class="businesses-b2b__info">
+          zachecamy do zapoznania się z naszą ofertą współpracy biznesowej i
+          kontaktu.
+        </p>
+        <a href="#about-b2b" class="businesses-b2b__btn">czytaj więcej</a>
+      </div>
+      <a href="#about-b2b" class="home__arrow"
+        ><i class="fa-solid fa-chevron-down bounce-top"></i
+      ></a>
+    </section>
+    <main class="main-b2b">
+      <section id="about-b2b" class="section-padding about-b2b">
+        <h2 class="section-heading">Dlaczego Współpraca Jest Ważna?</h2>
+        <div class="wrapper">
+          <div class="about-b2b__container">
+            <div class="about-b2b__advantage">
+              <img
+                src="./dist/images/icons/rozwoj-jako-stolarz.svg"
+                alt="rozwój stolarski"
+                class="about-b2b__icon"
+              />
+              <h3 class="about-b2b__name">rozwój</h3>
+            </div>
+            <div class="about-b2b__advantage">
+              <img
+                src="./dist/images/icons/nauka-stolarstwa.svg"
+                alt="nauka stolarstwa"
+                class="about-b2b__icon"
+              />
+              <h3 class="about-b2b__name">Nauka</h3>
+            </div>
+            <div class="about-b2b__advantage">
+              <img
+                src="./dist/images/icons/przychod-ze-stolarstwa.svg"
+                alt="przychód stolarski"
+                class="about-b2b__icon"
+              />
+              <h3 class="about-b2b__name">Przychód</h3>
+              >
+            </div>
+            <div class="about-b2b__advantage">
+              <img
+                src="./dist/images/icons/optymalizacja-pracy-stolarza.svg"
+                alt="optymalizacja pracy stolarskiej"
+                class="about-b2b__icon"
+              />
+              <h3 class="about-b2b__name">Optymalizacja</h3>
+            </div>
+          </div>
+          <div class="about-b2b__description-box">
+            <div class="about-b2b__img-box">
+              <img
+                src="./dist/images/wspolpraca-biznesowa-stolarstwo.jpg"
+                alt="współpraca biznesowa z firmą Kongrod"
+                class="about-b2b__img"
+              />
+            </div>
+            <div class="about-b2b__description-txt">
+              <p class="about-b2b__info about-b2b__info--dark">
+                Chcemy rozwijać się na wszelkie możliwe sposoby, dlatego
+                poszukujemy możliwości
+                <b class="bold">współpracy biznesowej</b> z innymi firmami.
+                Oferujemy uczciwe podejście do wykonywanych zadań i zawsze
+                podchodzimy do pracy z pełnym profesjonalizmem i zaangażowaniem,
+                i tego samego wymagamy od innych.
+              </p>
+              <p class="about-b2b__info about-b2b__info--light">
+                Zachęcamy do zapoznania się z ofertą przedstawioną poniżej oraz
+                do kontaktu. Jesteśmy również otwarci na bardzo wiele ciekawych
+                możliwości więc prosimy śmiało wychodzić z propozycjami
+                współpracy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="offers-b2b section-padding">
+        <h2 class="section-heading">Oferta</h2>
+        <div class="wrapper">
+          <div class="offers-b2b__container">
+            <div class="offers-b2b__offer">
+              <h3 class="offers-b2b__name">Domy i domki szkieletowe</h3>
+              <p class="offers-b2b__info">
+                Oferujemy wysokiej jakości domy i domki szkieletowe, dostosowane
+                do indywidualnych potrzeb klienta. Nasze rozwiązania stolarskie
+                gwarantują trwałość i estetykę.
+              </p>
+            </div>
+            <div class="offers-b2b__offer">
+              <h3 class="offers-b2b__name">Klejonka warstwowa</h3>
+              <p class="offers-b2b__info">
+                Nasza klejonka warstwowa to doskonałe rozwiązanie dla projektów
+                stolarskich. Materiał o wysokiej wytrzymałości i stabilności,
+                idealny do różnorodnych zastosowań.
+              </p>
+            </div>
+            <div class="offers-b2b__offer">
+              <h3 class="offers-b2b__name">Inne możliwości współpracy</h3>
+              <p class="offers-b2b__info">
+                Oprócz naszych głównych ofert, jesteśmy otwarci na inne formy
+                współpracy B2B w dziedzinie stolarstwa. Skontaktuj się z nami,
+                aby omówić szczegóły i dostosować ofertę do Twoich potrzeb.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <section id="contact" class="contact section-padding section">
+      <h2 class="section-heading">Kontakt</h2>
+      <div class="wrapper">
+        <div class="contact__container">
+          <div class="contact__methods">
+            <div
+              data-aos="fade-up"
+              data-aos-duration="1500"
+              class="contact__method contact__method--phone"
+            >
+              <div class="contact__icon-box">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="contact__method-info">
+                <h4 class="contact__name">Telefon</h4>
+                <a href="tel:+48576953624" class="contact__link"
+                  >+48 576 953 624</a
+                >
+                <div class="contact__method-cta">Sugerowana forma kontaktu</div>
+              </div>
+            </div>
+            <div
+              data-aos="fade-up"
+              data-aos-duration="1500"
+              class="contact__method"
+            >
+              <div class="contact__icon-box">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="contact__method-info">
+                <h4 class="contact__name">email</h4>
+                <a href="#form" class="contact__link contact__link--lowercase"
+                >kontakt@kongrod.pl</a
+              >
+              </div>
+            </div>
+            <div
+              data-aos="fade-up"
+              data-aos-duration="1500"
+              class="contact__method"
+            >
+              <div class="contact__icon-box">
+                <i class="fa-solid fa-map-location-dot"></i>
+              </div>
+              <div class="contact__method-info">
+                <h4 class="contact__name contact__name--address">Adres</h4>
+                <a href="#map" class="contact__link contact__link--small"
+                  >Poniatowskiego 118, 34-700 Rabka-Zdrój</a
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1500"
+            class="contact__form-container"
+            id="form"
+          >
+            <h4 class="contact__text">
+              Wypełnij ankietę, aby nawiązać kontakt w celu podjęcia współpracy
+            </h4>
+            <form action="mail.php" method="post" class="contact__form">
+              <div class="contact__inputs-group">
+                <div class="contact__input-box">
+                  <label for="email" class="contact__label">Adres email:</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    class="contact__input contact__input--lowercase"
+                    required
+                    placeholder="Wprowadź adres email"
+                  />
+                </div>
+
+                <div class="contact__input-box">
+                  <label for="phone" class="contact__label"
+                    >Numer telefonu:</label
+                  >
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    class="contact__input"
+                    required
+                    placeholder="Wprowadź numer telefonu"
+                  />
+                </div>
+              </div>
+
+              <div class="contact__inputs-group">
+                <div class="contact__input-box">
+                  <label for="location" class="contact__label"
+                    >Lokalizacja (miasto):</label
+                  >
+                  <input
+                    id="location"
+                    name="location"
+                    type="text"
+                    class="contact__input"
+                    required
+                    placeholder="Wprowadź lokalizację"
+                  />
+                </div>
+
+                <div class="contact__input-box">
+                  <label for="project-type" class="contact__label"
+                    >Rodzaj projektu:</label
+                  >
+                  <select
+                    name="project-type"
+                    id="project-type"
+                    class="contact__select"
+                    required
+                  >
+                    <option value="" disabled selected>
+                      Wybierz rodzaj projektu
+                    </option>
+                    <option value="Altany">Altany</option>
+                    <option value="Pergole">Pergole</option>
+                    <option value="Wiaty garazowe">Wiaty garażowe</option>
+                    <option value="Tarasy">Tarasy</option>
+                    <option value="Schody">Schody</option>
+                    <option value="Renowacje">Renowacje</option>
+                  </select>
+                  <div class="contact__select-arrow"></div>
+                </div>
+              </div>
+
+              <div class="contact__inputs-group">
+                <div class="contact__input-box">
+                  <label for="project-scope" class="contact__label"
+                    >Zakres projektu:</label
+                  >
+                  <select
+                    name="project-scope"
+                    id="project-scope"
+                    class="contact__select"
+                    required
+                  >
+                    <option value="" disabled selected>
+                      Wybierz zakres projektu
+                    </option>
+                    <option value="Mały projekt">
+                      Mały projekt (np. regał)
+                    </option>
+                    <option value="Średni projekt">
+                      Średni projekt (np. zabudowa wnęki)
+                    </option>
+                    <option value="Duży projekt">
+                      Duży projekt (np. kuchnia na wymiar)
+                    </option>
+                  </select>
+                  <div class="contact__select-arrow"></div>
+                </div>
+
+                <div class="contact__input-box">
+                  <label for="deadline" class="contact__label"
+                    >Termin realizacji:</label
+                  >
+                  <select
+                    name="deadline"
+                    id="deadline"
+                    class="contact__select"
+                    required
+                  >
+                    <option value="" disabled selected>
+                      Wybierz termin realizacji
+                    </option>
+                    <option value="Pilne">Pilne</option>
+                    <option value="Średni termin">Średni termin</option>
+                    <option value="Elastyczny termin">Elastyczny termin</option>
+                  </select>
+                  <div class="contact__select-arrow"></div>
+                </div>
+              </div>
+
+              <div class="contact__input-box">
+                <label for="additional-notes" class="contact__label"
+                  >Dodatkowe uwagi lub specjalne wymagania:</label
+                >
+                <textarea
+                  name="additional-notes"
+                  id="additional-notes"
+                  class="contact__textarea"
+                  placeholder="Dodatkowe uwagi..."
+                ></textarea>
+              </div>
+
+              <input
+                type="text"
+                id="hidden-input"
+                name="hidden-input"
+                class="contact__input contact__input--hidden"
+              />
+
+              <button type="submit" class="contact__button btn-animation">
+                Wyślij wiadomość
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <iframe
+          id="map"
+          class="contact__map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2585.5500419886957!2d19.978930015451606!3d49.60623415571252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47160a7959074675%3A0x78189eea29727fc0!2sPoniatowskiego%20118%2C%2034-700%20Rabka-Zdr%C3%B3j!5e0!3m2!1spl!2spl!4v1657284468520!5m2!1spl!2spl"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <div class="contact__social-media">
+        <h4 class="contact__social-heading">Śledź nasze projekty na:</h4>
+        <div class="contact__social-icons">
+          <a
+            href="https://pl-pl.facebook.com/KonGrod.eu/"
+            target="_blank"
+            class="contact__social-link"
+            ><i class="fa-brands fa-facebook-square"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/kongrod_garden_carpentry/"
+            target="_blank"
+            class="contact__social-link"
+            ><i class="fa-brands fa-instagram-square"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer__nav">
+        <a href="./index.html#about" class="footer__link">o nas</a>
+        <a href="./index.html#offers" class="footer__link">oferta</a>
+        <a href="./index.html#features" class="footer__link">dlaczego my?</a>
+        <a href="./index.html#projects" class="footer__link">realizacje</a>
+        <a href="./b2b.html" class="footer__link">B2B</a>
+        <a href="./index.html#contact" class="footer__link">Kontakt</a>
+      </div>
+    </footer>
+    <a href="#" class="scroll-btn btn-animation"
+      ><i class="fa-solid fa-arrow-up"></i
+    ></a>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./dist/css/style.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./dist/js/aos.min.js"></script>
+    <script src="./dist/js/main.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,158 @@
+.businesses-b2b {
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: $gradient, url("../images/wspolpraca-biznesowa-maly.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  &__banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    color: $pure-white;
+    text-align: center;
+  }
+
+  &__heading {
+    font-size: 2.6rem;
+  }
+
+  &__info {
+    font-size: 1.7rem;
+  }
+
+  &__btn {
+    padding: 1rem 3rem;
+    background-color: $main-color;
+    color: $pure-white;
+    font-size: 1.6rem;
+  }
+}
+
+.about-b2b {
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2rem 2rem 5rem 2rem;
+  }
+
+  &__advantage {
+    flex: 1 1 30rem;
+    padding: 3rem 2rem;
+    border: 0.2rem solid $main-color;
+    text-align: center;
+  }
+
+  &__icon {
+    width: 7rem;
+  }
+
+  &__name {
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: $text-color-first;
+  }
+  &__description-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    align-items: center;
+    justify-content: center;
+    margin:0 2rem;
+  }
+
+  &__img-box {
+    flex: 1 1 40rem;
+  }
+
+  &__img{
+    object-fit: cover;
+    width: 100%;
+  }
+  &__description-txt {
+    flex: 1 1 40rem;
+  }
+  &__info{
+    font-size:1.6rem;
+    line-height: 160%;
+    &--dark{
+      margin-bottom: 3rem;
+      color:$text-color-first;
+    }  
+    &--light{
+      color:$text-color-second;
+    }  
+  }
+}
+
+.offers-b2b {
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2rem;
+  }
+
+  &__offer {
+    flex: 1 1 30rem;
+    padding: 3rem 2rem;
+    border: 0.2rem solid $main-color;
+    text-align: center;
+  }
+
+  &__name {
+    font-weight: 400;
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    color: $text-color-first;
+  }
+
+  &__info {
+    font-size: 1.6rem;
+    color: $text-color-second;
+    line-height: 150%;
+  }
+}
+
+@media (min-width: 576px) {
+  .businesses-b2b {
+    &__banner {
+      gap: 3rem;
+    }
+    &__heading {
+      font-size: 4rem;
+    }
+  }
+}
+
+@media (min-width: 776px) {
+  .businesses-b2b {
+    &__banner {
+      gap: 4rem;
+    }
+    &__heading {
+      font-size: 5rem;
+    }
+  }
+  .about-b2b {
+    &__container {
+      margin: 2rem 2rem 7rem 2rem;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .businesses-b2b {
+    background-image: $gradient, url("../images/wspolpraca-biznesowa-duzy.jpg");
+    &__heading {
+      font-size: 7rem;
+    }
+  }
+}
